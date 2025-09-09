@@ -1,0 +1,31 @@
+.griddle {
+    display: grid;
+    height: 100vh;
+    /*grid-template-rows: 100px 1fr 100px;*/
+    grid-template-columns: 120px 1fr 120px;
+
+}
+
+@media (max-width: 700px) {
+    .griddle{
+    display: grid;
+    height: 100vh;
+    grid-template-columns: none;
+    grid-template-rows: 100px 1fr 100px;
+    }
+}
+
+.cake {
+    background-color: #82ABA1;
+    text-align: center;
+}
+
+.fillings {
+    background-color: #B8E1FF;
+}
+
+.cheese h2 {
+     text-decoration: underline;
+     text-align: center;
+     color :#4ce26f
+}

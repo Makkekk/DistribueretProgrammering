@@ -1,0 +1,37 @@
+class MyArray {
+constructor(numbers) {
+    this.numbers = numbers
+}
+
+max () {
+    let maxVal = this.numbers[0]
+    for (let value of this.numbers) {
+        if (value > maxVal) {
+            maxVal = value;
+        }
+    }
+    return maxVal;
+}
+
+ contains(element) {
+        for (let value of this.numbers) {
+            if (value === element) {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    sum() {
+        let total = 0;
+        for (let value of this.numbers) {
+            total += value;
+        }
+        return total;
+    }
+}
+    
+let arr = new MyArray([1, 2, 4, 6, 8]);
+console.log("Max =", arr.max());            // 8
+console.log("Contains 6?", arr.contains(6)); // true
+console.log("Sum =", arr.sum());            // 21

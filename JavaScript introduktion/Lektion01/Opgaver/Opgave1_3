@@ -1,0 +1,43 @@
+// bubbleSort.js
+let list = [4, 6, 5, 2, 10, 6, 9, 8,11,32,25,100];
+
+for (let i = list.length - 1; i >= 0; i--) {
+    for (let j = 0; j <= i - 1; j++) {
+        if (list[j] > list[j + 1]) {
+            let temp = list[j];
+            list[j] = list[j + 1];
+            list[j + 1] = temp;
+        }
+    }
+}
+
+console.log('Sorteret liste', list.toString());
+
+function binarySearch(list, target) {
+
+    let target = 8;
+    let position = -1
+
+
+    let low = 0;
+    let high = list.length - 1;
+
+    while (low <= high && position === -1) {
+        let mid = parseInt((low + high) / 2);
+
+        if (list[mid] == target) {
+            return mid;
+        } else if (list[mid] < target) {
+            low = mid + 1;
+        } else {
+            high = mid - 1;
+        }
+    }
+
+    return -1;
+}
+
+
+let result = binarySearch(list, target);
+
+console.log('target;', target, 'index:', result)

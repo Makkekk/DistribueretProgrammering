@@ -1,0 +1,25 @@
+ .container {
+        display: grid;
+        grid-template-columns:auto 1fr;
+        grid-template-rows: auto auto auto;
+        grid-template-areas:
+        "img1 tekst1"
+        "board tekst2"
+        "url url";
+        gap: 10px;
+        padding: 20px;
+        align-items: start;
+    }
+    
+    .img1 { grid-area: img1; width: 100px; height: auto; }
+    .board {grid-area: board;}
+    
+    
+    .tekst1 { grid-area: tekst1; padding: 10px; }
+    .tekst2 { grid-area: tekst2; padding: 10px; }
+   
+    .url {
+        grid-area: url;
+        margin-top: 10px;
+        text-align: center;
+    }
