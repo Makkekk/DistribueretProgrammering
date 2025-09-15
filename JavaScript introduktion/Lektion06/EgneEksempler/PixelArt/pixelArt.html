@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Pixel Art Editor</title>
+  <style>
+    canvas {
+      border: 1px solid #000;
+      image-rendering: pixelated;
+    }
+  </style>
+</head>
+<body>
+
+<input type="color" id="colorPicker" value="#ff0000">
+<canvas id="pixelCanvas" width="320" height="320"></canvas>
+
+<script>
+const canvas = document.getElementById('pixelCanvas');
+const ctx = canvas.getContext('2d');
+const colorPicker = document.getElementById('colorPicker');
+
+const pixelSize = 16; // size of each "pixel"
+const width = canvas.width / pixelSize;
+const height = canvas.height / pixelSize;
+
+// Initialize canvas grid
+ctx.fillStyle = "#ffffff";
+ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+let drawing = false;
+
+canvas.addEventListener('mousedown', () => drawing = true);
+canvas.addEventListener('mouseup', () => drawing = false);
+canvas.addEventListener('mousemove', drawPixel);
+
+function drawPixel(e) {
+  if (!drawing) return;
+  const rect = canvas.getBoundingClientRect();
+  const x = Math.floor((e.clientX - rect.left) / pixelSize) * pixelSize;
+  const y = Math.floor((e.clientY - rect.top) / pixelSize) * pixelSize;
+  ctx.fillStyle = colorPicker.value;
+  ctx.fillRect(x, y, pixelSize, pixelSize);
+}
+</script>
+
+</body>
+</html>

@@ -5,7 +5,13 @@ document.querySelectorAll('p').forEach((afsnit) => { afsnit.style.color = 'red' 
 
 
 //opgave 5.2
-let overskrift = document.querySelectorAll('h1');
+
+for (let e of document.querySelectorAll('h1 + * + *')) {
+    e.style.color = 'Brown';
+}
+
+// eller bøvl
+/*let overskrift = document.querySelectorAll('h1');
 
 for (let i = 0; i < overskrift.length; i++) {
     let firstSibling = overskrift[i].nextElementSibling;
@@ -16,39 +22,34 @@ for (let i = 0; i < overskrift.length; i++) {
         }
     }
 }
+    */
 
-//opgave 6.3
+//opgave 5.3
+// for (let even of lis = document.querySelectorAll('ul li:nth-child(odd)')) {
+   // event.style.backgroundColor = 'lightgrey';
 
 let items = document.querySelectorAll('ul li');
-
-/*
-for (let i = 0; i < items.length; i++) {
-    if (i % 2 === 0) {
-        items[i].style.backgroundColor = 'LightGray';
-    }
-}
-
-*/
-
 for (let i = 1; i < items.length; i += 2) { // start at 1 and skip every 2
     items[i].style.backgroundColor = 'lightgrey';
+
+
 }
 
 
 //opgave 5.4
 
-let underoverskrift = document.querySelectorAll('h1');
 
-for (let i = 0; i < underoverskrift.length; i++) {
-    let p = underoverskrift[i].nextElementSibling;
-
-    if (p && p.tagName === 'P') {
-        let h2 = document.createElement('h2');
-        h2.innerHTML = p.innerHTML;
-
-        p.parentNode.replaceChild(h2, p);
-    }
+//Løsningsmodel 1
+for (let e of document.querySelectorAll('h1 + p')) {
+    let h2Node = document.createElement('h2')
+    e.parentNode.replaceChild(h2Node, e)
+    h2Node.appendChild(e)
+    h2Node.style.color = 'blue'
+    //løsningsmodel 2 
+    //e.outerHTML = '<h2>' + e.innerHTML + '</h2>'
+    
 }
+
 
 //opgave 5.5
 let headings = document.querySelectorAll('h1, h2, h3, h4, h5, h6');
